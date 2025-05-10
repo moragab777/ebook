@@ -1,0 +1,640 @@
+/* --- GLOBAL & UTILITY --- */
+:root {
+  --primary-color: #f08c2f;
+  --secondary-color: #333745;
+  --text-dark: #1e2022;
+  --text-light: #555;
+  --text-on-dark: #f0f0f0;
+  --text-on-primary: #fff;
+  --bg-light: #f9f9f9;
+  --border-light: #e0e0e0;
+  --star-color: var(--primary-color);
+
+  --font-main: "Poppins", sans-serif;
+  --container-width: 1140px;
+  --section-padding: 80px 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  line-height: 1.7;
+  color: var(--text-light);
+  background-color: #fff;
+}
+
+.container {
+  width: 90%;
+  max-width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: darken(var(--primary-color), 10%);
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-dark);
+  margin-bottom: 0.7em;
+  line-height: 1.3;
+}
+h1 {
+  font-size: 2.8rem;
+}
+h2 {
+  font-size: 2.2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.2rem;
+}
+
+.section-subtitle {
+  color: var(--primary-color);
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 0.3em;
+  font-size: 0.95rem;
+}
+
+.text-content-center {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-align: center;
+}
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
+  border-color: var(--primary-color);
+}
+.btn-primary:hover {
+  background-color: darken(var(--primary-color), 10%);
+  border-color: darken(var(--primary-color), 10%);
+  color: var(--text-on-primary);
+}
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-dark);
+  border: 2px solid var(--text-dark);
+  margin-left: 15px;
+}
+.hero-section .btn-secondary {
+  color: var(--text-on-primary);
+  border-color: var(--text-on-primary);
+}
+.hero-section .btn-secondary:hover {
+  background-color: var(--text-on-primary);
+  color: var(--text-dark);
+}
+.btn-outline-primary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
+}
+
+/* --- 1. HEADER --- */
+.site-header {
+  background-color: var(--secondary-color);
+
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+.header-grid-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  color: var(--text-on-dark);
+}
+.logo img {
+  width: 28px;
+  height: 28px;
+  margin-right: 8px;
+}
+.logo span {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.main-navigation ul {
+  display: flex;
+  justify-content: center;
+}
+.main-navigation li a {
+  color: var(--text-on-dark);
+  padding: 10px 15px;
+  font-weight: 500;
+}
+.main-navigation li a.active,
+.main-navigation li a:hover {
+  color: var(--primary-color);
+}
+
+/* --- 2. HERO SECTION --- */
+.hero-section {
+  background: url("img/hero-background.jpg") no-repeat center center/cover;
+  padding: var(--section-padding);
+  color: var(--text-on-primary);
+  position: relative;
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: #1a1a1a url("./images/businessman-sitting-by-table-cafe.jpg")
+    no-repeat center center/cover;
+  z-index: 1;
+}
+.hero-grid-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+.hero-text .hero-subtitle {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.hero-text h1 {
+  color: var(--text-on-primary);
+  font-size: 3.2rem;
+  margin-bottom: 30px;
+}
+.hero-image-container img {
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin-left: auto;
+}
+
+/* --- 3. RATINGS BAR --- */
+.ratings-bar {
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
+  padding: 20px 0;
+}
+.ratings-grid-container {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 20px;
+}
+.user-avatars img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--text-on-primary);
+  margin-right: -12px;
+  display: inline-block;
+}
+.rating-details strong {
+  font-size: 1.6rem;
+  margin-right: 5px;
+}
+.rating-details .stars {
+  color: var(--text-on-primary);
+  font-size: 1.1rem;
+}
+.review-count {
+  font-size: 0.9rem;
+}
+
+/* --- 4. TABLET SHOWCASE --- */
+.tablet-showcase-section {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+  padding: var(--section-padding);
+}
+.tablet-showcase-image {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-left: 50px;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 5. ABOUT THE BOOK --- */
+.text-content-center {
+  padding: 80px;
+  text-align: center;
+}
+
+/* --- 6. PREVIEW AT GLANCE --- */
+.preview-glance-section {
+  padding: var(--section-padding);
+  background-color: var(--bg-light);
+}
+.preview-grid-container {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 50px;
+  align-items: start;
+}
+.chapters-list {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--primary-color);
+}
+.chapters-list li {
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  background-color: #f0f4f8;
+  border-radius: 20px;
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+.chapters-list li:last-child {
+  margin-bottom: 0;
+}
+.chapters-list li:hover {
+  background-color: #e1e8f0;
+}
+.quote-box {
+  background-color: #eef2f5;
+  padding: 25px;
+  border-radius: 8px;
+  margin: 25px 0;
+  border-left: 5px solid var(--primary-color);
+  position: relative;
+  font-style: italic;
+}
+.quote-box::before {
+  content: "“";
+  font-size: 4rem;
+  color: var(--primary-color);
+  position: absolute;
+  left: 15px;
+  top: 0px;
+  line-height: 1;
+  opacity: 0.8;
+}
+.quote-box p {
+  margin-bottom: 0;
+  padding-left: 30px;
+}
+
+/* --- 7. MEET AUTHOR --- */
+.meet-author-section {
+  padding: var(--section-padding);
+  overflow: hidden;
+  position: relative;
+}
+.author-grid-container {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+}
+.author-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.author-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 8px solid #fff;
+  position: relative;
+  z-index: 2;
+}
+.deco-circle {
+  position: absolute;
+  background-color: #fde4a8;
+  border-radius: 50%;
+  z-index: 1;
+}
+.circle-1 {
+  width: 80px;
+  height: 80px;
+  top: -20px;
+  left: 0px;
+}
+.circle-2 {
+  width: 120px;
+  height: 120px;
+  bottom: -30px;
+  right: -20px;
+}
+.circle-3 {
+  width: 50px;
+  height: 50px;
+  bottom: 40px;
+  left: -40px;
+}
+
+/* --- 8. REVIEWS SECTION --- */
+.reviews-section {
+  padding: var(--section-padding);
+  background-color: var(--bg-light);
+}
+.reviews-section h2 {
+  margin-bottom: 40px;
+}
+.reviews-grid-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(320px, 1fr)
+  ); /* Responsive columns */
+  gap: 30px;
+}
+.review-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+.review-card-header {
+  background-color: var(--primary-color);
+
+  color: var(--text-on-primary);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+.review-card-header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  border: 2px solid var(--text-on-primary);
+}
+.review-card-header h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.1em;
+  color: var(--text-on-primary);
+}
+.review-card-header p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  color: var(--text-on-primary);
+  margin-bottom: 0;
+}
+
+.review-card-rating {
+  padding: 15px 20px 10px;
+  font-weight: bold;
+}
+.review-card-rating .stars {
+  color: var(--star-color);
+}
+.review-card > p {
+  padding: 0 20px 20px;
+  font-size: 0.95rem;
+
+  background: #1a1a1a url("./images/businessman-sitting-by-table-cafe.jpg")
+    no-repeat center center/cover;
+}
+
+/* --- 9. CONTACT / GET EBOOK --- */
+.contact-section {
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
+  padding-top: 120px;
+  padding-bottom: var(--section-padding);
+  position: relative;
+  overflow: hidden;
+}
+.contact-background-swoop {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background-color: #fff;
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 0% 100%);
+  z-index: 0;
+}
+.contact-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+.ebook-form-area {
+  background-color: #fff;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.ebook-form-area h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text-dark);
+}
+.ebook-form-area input[type="text"],
+.ebook-form-area input[type="email"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-light);
+  border-radius: 25px;
+  font-size: 1rem;
+  font-family: var(--font-main);
+}
+.ebook-form-area button.btn-primary {
+  width: 100%;
+  padding: 15px;
+}
+.contact-details-area .section-subtitle,
+.contact-details-area h3,
+.contact-details-area h4 {
+  color: var(--text-on-primary);
+}
+.contact-details-area .section-subtitle {
+  opacity: 0.8;
+}
+.contact-details-area p {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+}
+.contact-details-area .contact-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  filter: invert(1);
+}
+.social-icons {
+  margin-top: 15px;
+}
+.social-icons a {
+  display: inline-block;
+  margin-right: 12px;
+}
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+}
+
+/* --- 10. FOOTER --- */
+.site-footer-bottom {
+  background-color: var(--secondary-color);
+  color: #aaa;
+  padding: 25px 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.footer-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+@media (min-width: 768px) {
+  .footer-grid-container {
+    grid-template-columns: 1fr auto;
+    text-align: left;
+  }
+  .footer-grid-container p:last-child {
+    text-align: right;
+  }
+}
+.site-footer-bottom p {
+  margin-bottom: 0;
+  color: #aaa;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS (Basic Examples) --- */
+@media (max-width: 992px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+  .hero-text h1 {
+    font-size: 2.6rem;
+  }
+  h2 {
+    font-size: 1.9rem;
+  }
+
+  .hero-grid-container,
+  .preview-grid-container,
+  .author-grid-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-image-container img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+  }
+  .chapters-list-column {
+    margin-bottom: 30px;
+  }
+  .author-image-wrapper {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-grid-container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 10px;
+  }
+  .main-navigation ul {
+    flex-direction: column;
+    text-align: center;
+  }
+  .main-navigation li a {
+    padding: 8px 0;
+  }
+
+  .ratings-grid-container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+  .user-avatars {
+    justify-content: center;
+  }
+  .review-count {
+    text-align: center;
+  }
+
+  .contact-grid-container {
+    grid-template-columns: 2fr;
+  }
+  .contact-details-area {
+    margin-top: 40px;
+    text-align: center;
+  }
+  .contact-details-area p {
+    justify-content: center;
+  }
+  .social-icons {
+    text-align: center;
+  }
+}
